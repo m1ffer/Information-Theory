@@ -1,0 +1,249 @@
+
+/* ========== ГЛОБАЛЬНЫЕ СТИЛИ ========== */
+
+/* Корневой контейнер (весь фон окна) */
+.root {
+    -fx-background-color: #2b2b2b;
+    -fx-font-family: "JetBrains Mono", monospace;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;          /* жирное начертание */
+    -fx-font-smoothing-type: lcd;   /* улучшенное сглаживание */
+    -fx-text-fill: #e2b714;         /* цвет текста по умолчанию (уже есть, но для надёжности) */
+}
+
+/* Все надписи и текст получают жёлтый цвет */
+.label, .text, .text-field, .button, .combo-box,
+.combo-box .list-cell, .check-box, .radio-button {
+    -fx-text-fill: #e2b714;
+}
+
+.text-area {
+    -fx-background-color: #3c3c3c;
+    -fx-text-fill: #e2b714;
+    -fx-border-color: #3c3c3c;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-font-size: 20px;        /* увеличенный размер */
+}
+
+/* Интерактивные элементы: фон светлее основного */
+.button, .text-field, .text-area, .combo-box, .combo-box-base,
+.check-box .box, .radio-button .radio {
+    -fx-background-color: #3c3c3c;
+    -fx-background-radius: 3px; /* лёгкое скругление */
+}
+
+/* Поля ввода — дополнительно белая рамка для видимости */
+.text-field, .text-area, .combo-box {
+    -fx-border-color: #3c3c3c;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+/* Выпадающий список ComboBox */
+.combo-box .list-view {
+    -fx-background-color: #3c3c3c;
+    -fx-border-color: #e2b714;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e2b714;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #3c3c3c;
+}
+.combo-box .arrow {
+    -fx-background-color: #e2b714;
+}
+
+/* Кнопки при наведении */
+.button:hover {
+    -fx-background-color: #4c4c4c;
+}
+
+/* ===== TextArea: тёмный фон и жёлтый текст ===== */
+.text-area {
+    -fx-background-color: #3c3c3c;           /* фон самого TextArea */
+    -fx-text-fill: #e2b714;                   /* цвет текста */
+    -fx-border-color: #3c3c3c;                 /* рамка под цвет фона */
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+.text-area .content {
+    -fx-background-color: #3c3c3c;             /* фон области ввода */
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;         /* прозрачный фон у скролла */
+}
+
+.text-area .viewport {
+    -fx-background-color: #3c3c3c;             /* фон видимой области */
+}
+
+/* Курсор (каретка) — тоже жёлтый */
+.text-area .caret {
+    -fx-stroke: #e2b714;                       /* цвет каретки */
+}
+
+/* Кнопки при нажатии */
+.button:pressed {
+    -fx-background-color: #5c5c5c;
+}
+
+/* Прокручиваемые панели (ScrollPane) — фон и полосы прокрутки */
+.scroll-pane {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #3c3c3c;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #2b2b2b;
+}
+
+/* Вертикальная полоса прокрутки — делаем тоньше */
+.scroll-bar:vertical {
+    -fx-pref-width: 8px;        /* ширина вертикальной полосы */
+    -fx-min-width: 8px;
+    -fx-max-width: 8px;
+    -fx-background-color: #3c3c3c; /* фон полосы (можно оставить как у вас) */
+}
+
+/* Горизонтальная полоса прокрутки */
+.scroll-bar:horizontal {
+    -fx-pref-height: 8px;        /* высота горизонтальной полосы */
+    -fx-min-height: 8px;
+    -fx-max-height: 8px;
+    -fx-background-color: #3c3c3c;
+}
+
+/* Ползунок (thumb) — наследует ширину полосы, но можно дополнительно скруглить */
+.scroll-bar .thumb {
+    -fx-background-color: #e2b714; /* жёлтый (уже есть) */
+    -fx-background-radius: 4px;     /* скругление, чтобы выглядел аккуратнее */
+    -fx-pref-width: 8px;            /* дублируем на случай, если полоса не ограничила */
+    -fx-pref-height: 8px;
+}
+
+/* Убираем ненужные эффекты при наведении/нажатии, если они мешают */
+.scroll-bar .thumb:hover {
+    -fx-background-color: #ffd966;  /* более светлый жёлтый (уже есть) */
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #e2b714;  /* или любой другой */
+}
+
+/* Скрываем кнопки увеличения/уменьшения у вертикальных и горизонтальных полос */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: "";
+    -fx-scale-shape: false;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-min-width: 0;
+    -fx-min-height: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+}
+
+/* Также скрываем стрелки внутри кнопок (на всякий случай) */
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Область с текстом: светло-серый фон */
+.text-scroll-pane {
+    -fx-background-color: #3c3c3c;        /* фон самого ScrollPane */
+    -fx-border-color: #3c3c3c;             /* рамка в тон (опционально) */
+}
+
+/* Внутренняя область просмотра (viewport) — тоже делаем светло-серой */
+.text-scroll-pane .viewport {
+    -fx-background-color: #3c3c3c;
+}
+
+/* AnchorPane внутри — фон прозрачный, чтобы показать фон viewport,
+   но можно и явно задать, если нужно */
+.text-scroll-pane .anchor-pane {
+    -fx-background-color: transparent;    /* или #3c3c3c, если хотите */
+}
+
+/* Label внутри — фон прозрачный (текст будет виден) */
+.text-scroll-pane .label {
+    -fx-font-size: 20px;        /* нужный размер */
+    -fx-background-color: transparent;
+    -fx-text-fill: #e2b714;               /* жёлтый текст (уже есть глобально) */
+}
+
+/* ========== КЛАССЫ ДЛЯ ФИКСИРОВАННЫХ РАЗМЕРОВ ========== */
+
+/* Метки с фиксированным размером 80x18 */
+.info-label {
+    -fx-pref-width: 80px;
+    -fx-min-width: 80px;
+    -fx-max-width: 80px;
+    -fx-pref-height: 18px;
+    -fx-min-height: 18px;
+    -fx-max-height: 18px;
+}
+
+.long-info-label {
+    -fx-pref-width: 120px;
+    -fx-min-width: 120px;
+    -fx-max-width: 120px;
+    -fx-pref-height: 18px;
+    -fx-min-height: 18px;
+    -fx-max-height: 18px;
+}
+
+/* Длинные тонкие кнопки для нижней панели (120x30) */
+.control-button {
+    -fx-pref-width: 150px;
+    -fx-min-width: 150px;
+    -fx-max-width: 150px;
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+    -fx-max-height: 30px;
+}
+
+/* Прямоугольные кнопки для остальных случаев (90x30) */
+.file-button {
+    -fx-pref-width: 120px;
+    -fx-min-width: 120px;
+    -fx-max-width: 120px;
+    -fx-pref-height: 26px;
+    -fx-min-height: 26px;
+    -fx-max-height: 26px;
+}
+
+/* Вертикальные разделители (тонкие полоски-отступы) */
+.vertical-spacer {
+    -fx-pref-height: 20px;        /* фиксированная высота 20 пикселей */
+    -fx-min-height: 20px;
+    -fx-max-height: 20px;
+    /* ширина не ограничена — элемент займёт всю доступную ширину родителя */
+}
+
+.minimal-size-vertical-spacer {
+    -fx-pref-height: 5px;        /* фиксированная высота 20 пикселей */
+    -fx-min-height: 5px;
+    -fx-max-height: 5px;
+}
+
+/* Горизонтальные разделители (тонкие по ширине) */
+.horizontal-spacer { /* яркий цвет для отладки */
+    -fx-pref-width: 20px;          /* фиксированная ширина 20 пикселей */
+    -fx-min-width: 20px;
+    -fx-max-width: 20px;
+    /* высота не ограничена — подстраивается под родителя */
+}
