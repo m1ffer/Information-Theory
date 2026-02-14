@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.fxml.FXML?>
+
+<HBox prefHeight="630.0" prefWidth="1000.0" styleClass="root" stylesheets="@styles.css"
+      xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.app.controllers.MainController">
+    <children>
+        <!-- Левый горизонтальный спейсер -->
+        <Region maxWidth="20" minWidth="20" prefWidth="20" styleClass="horizontal-spacer" HBox.hgrow="NEVER" />
+
+        <!-- Основной VBox с вертикальными отступами -->
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+              minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="629.0" prefWidth="642.0"
+              HBox.hgrow="ALWAYS">
+
+            <children>
+                <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Верхняя строка с ComboBox -->
+                <fx:include fx:id="category" source="category-combobox.fxml"/>
+
+                <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Строка с полем ключа -->
+                <fx:include fx:id="key" source="key-field.fxml"/>
+
+                <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Строка с кнопками выбора файла/папки для исходного текста -->
+                <fx:include source="source-file-buttons.fxml"/>
+
+                <Region styleClass="minimal-size-vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Текстовое поле для исходного текста -->
+                <fx:include source="input-area.fxml"/>
+
+                <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Строка с кнопкой выбора файла для результата -->
+                <fx:include source="result-file-button.fxml"/>
+
+                <Region styleClass="minimal-size-vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Прокручиваемая область с текстом результата -->
+                <ScrollPane fitToWidth="true" prefHeight="140.0" prefWidth="642.0"
+                            styleClass="text-scroll-pane" VBox.vgrow="ALWAYS">
+                    <content>
+                        <fx:include source="result-window.fxml"/>
+                    </content>
+                </ScrollPane>
+
+                <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
+
+                <!-- Нижняя панель с кнопками действий -->
+                <fx:include source="encrypt-buttons.fxml"/>
+
+                <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
+            </children>
+        </VBox>
+
+        <!-- Правый горизонтальный спейсер -->
+        <Region maxWidth="20" minWidth="20" prefWidth="20" styleClass="horizontal-spacer" HBox.hgrow="NEVER" />
+    </children>
+</HBox>

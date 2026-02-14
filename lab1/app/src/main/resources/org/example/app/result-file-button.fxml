@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<HBox alignment="BOTTOM_LEFT" prefHeight="5.0" prefWidth="642.0" spacing="5" xmlns="http://javafx.com/javafx/25">
+    <Label styleClass="long-info-label" text="Итоговый текст:" HBox.hgrow="NEVER" />
+    <Region styleClass="horizontal-spacer" HBox.hgrow="NEVER" />
+    <Button styleClass="file-button" text="Выбор файла" HBox.hgrow="NEVER" />
+    <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+</HBox>

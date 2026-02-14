@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:controller="org.example.app.controllers.CategoryController"
+      alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="642.0" spacing="5"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml">
+    <Label styleClass="info-label" text="Шифр:" HBox.hgrow="NEVER" />
+    <ComboBox promptText="Выберите шифр" fx:id="categoryComboBox" prefHeight="26.0" prefWidth="222.0" />
+</HBox>

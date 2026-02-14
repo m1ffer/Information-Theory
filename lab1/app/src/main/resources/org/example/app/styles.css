@@ -12,12 +12,18 @@
 }
 
 /* Все надписи и текст получают жёлтый цвет */
-.label, .text, .text-field, .button, .combo-box,
+.label, .text, .button, .combo-box,
 .combo-box .list-cell, .check-box, .radio-button {
     -fx-text-fill: #e2b714;
 }
 
+.text-field {
+    -fx-prompt-text-fill: #e2b714;
+    -fx-text-fill: #e2b714;
+}
+
 .text-area {
+    -fx-prompt-text-fill: #e2b714;
     -fx-background-color: #3c3c3c;
     -fx-text-fill: #e2b714;
     -fx-border-color: #3c3c3c;
