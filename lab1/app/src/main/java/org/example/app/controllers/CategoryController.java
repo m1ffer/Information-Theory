@@ -28,6 +28,7 @@ public class CategoryController {
         // Добавляем слушатель для логирования в консоль
         categoryComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
             System.out.println("Выбранная категория изменилась: '" + oldValue + "' -> '" + newValue + "'");
+            model.setCrypt(newValue);
         });
     }
 }

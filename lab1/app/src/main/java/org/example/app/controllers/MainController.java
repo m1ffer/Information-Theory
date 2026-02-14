@@ -11,17 +11,22 @@ public class MainController {
     private CategoryController categoryController;
     @FXML
     private KeyController keyController;
+    @FXML
+    private InputAreaController inputAreaController;
+    @FXML
+    private OutputController outputController;
+    @FXML
+    private CryptController cryptController;
     public void setModel(MainModel model){
         this.model = model;
         categoryController.setModel(model.getCategoryModel());
         keyController.setModel(model.getKeyModel());
+        inputAreaController.setModel(model.getInputModel());
+        outputController.setModel(model.getOutputModel());
+        cryptController.setModel(model.getCryptModel());
     }
     @FXML
-    public void initialize() {
-        // Здесь ничего не делаем, т.к. модель ещё не передана.
-        // Но можно проверить, что categoryPanelController не null.
-        System.out.println("CategoryController initialized");
-    }
+    public void initialize() {}
     @FXML
     private void handleShowSelection() {
         if (model != null) {

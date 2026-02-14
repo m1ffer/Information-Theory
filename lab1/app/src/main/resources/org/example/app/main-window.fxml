@@ -38,7 +38,7 @@
                 <Region styleClass="minimal-size-vertical-spacer" VBox.vgrow="NEVER" />
 
                 <!-- Текстовое поле для исходного текста -->
-                <fx:include source="input-area.fxml"/>
+                <fx:include fx:id="inputArea" source="input-area.fxml"/>
 
                 <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
 
@@ -51,14 +51,14 @@
                 <ScrollPane fitToWidth="true" prefHeight="140.0" prefWidth="642.0"
                             styleClass="text-scroll-pane" VBox.vgrow="ALWAYS">
                     <content>
-                        <fx:include source="result-window.fxml"/>
+                        <fx:include fx:id="output" source="result-window.fxml"/>
                     </content>
                 </ScrollPane>
 
                 <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
 
                 <!-- Нижняя панель с кнопками действий -->
-                <fx:include source="encrypt-buttons.fxml"/>
+                <fx:include fx:id="crypt" source="encrypt-buttons.fxml"/>
 
                 <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
             </children>

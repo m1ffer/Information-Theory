@@ -4,12 +4,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="642.0" spacing="5" xmlns="http://javafx.com/javafx/25">
+<HBox fx:controller="org.example.app.controllers.CryptController"
+      alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="642.0" spacing="5"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml">
     <Region minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-    <Button styleClass="control-button" text="Зашифровать" HBox.hgrow="NEVER" />
+    <Button fx:id="encryptButton" styleClass="control-button" text="Зашифровать" onAction="#handleEncrypt" HBox.hgrow="NEVER" />
     <Region minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-    <Button styleClass="control-button" text="Расшифровать" HBox.hgrow="NEVER" />
+    <Button fx:id="decryptButton" styleClass="control-button" text="Расшифровать" onAction="#handleDecrypt" HBox.hgrow="NEVER" />
     <Region minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-    <Button styleClass="control-button" text="Очистить все" HBox.hgrow="NEVER" />
+    <Button fx:id="clearButton" styleClass="control-button" text="Очистить все" onAction="#handleClear" HBox.hgrow="NEVER" />
     <Region minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
 </HBox>
