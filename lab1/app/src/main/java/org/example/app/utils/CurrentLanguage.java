@@ -4,6 +4,9 @@ import javafx.scene.control.TextFormatter;
 
 public class CurrentLanguage {
     private Languages currentLanguage;
+    public CurrentLanguage(){
+        currentLanguage = Languages.ENGLISH;
+    }
     public Languages get(){
         return currentLanguage;
     }

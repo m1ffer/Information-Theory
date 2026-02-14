@@ -69,5 +69,6 @@ public class CategoryModel {
 
     public void setCrypt(String crypt){
         textProperty.set(crypt);
+        currentLanguage.set(languages.get(crypt));
     }
 }

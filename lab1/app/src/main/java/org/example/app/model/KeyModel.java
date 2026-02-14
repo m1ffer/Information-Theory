@@ -3,6 +3,7 @@ package org.example.app.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import org.example.app.utils.CurrentLanguage;
+import org.example.app.utils.Languages;
 
 public class KeyModel {
     private final StringProperty key = new SimpleStringProperty("");
@@ -22,5 +23,9 @@ public class KeyModel {
 
     public final void setKey(String key) {
         this.key.set(key);
+    }
+
+    public final Languages getLanguage(){
+        return currentLanguage.get();
     }
 }

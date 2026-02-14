@@ -2,7 +2,11 @@ package org.example.app.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import org.example.app.model.KeyModel;
+import org.example.app.utils.Languages;
+
+import java.util.function.UnaryOperator;
 
 public class KeyController {
 
@@ -24,9 +28,29 @@ public class KeyController {
 
     // Метод инициализации после установки модели
     public void initModel() {
-        if (model != null) {
-            // Двусторонняя привязка текста поля к свойству модели
-            keyTextField.textProperty().bindBidirectional(model.keyValueProperty());
-        }
+        keyTextField.textProperty().bindBidirectional(model.keyValueProperty());
+        // Создаём фильтр, разрешающий только не цифры
+        UnaryOperator<TextFormatter.Change> filter = change -> {
+            String newText = change.getControlNewText();
+
+            return switch (model.getLanguage()){
+                case Languages.RUSSIAN ->{
+                    if (newText.matches("[а-яё]*"))
+                        yield change;
+                    yield null;
+                }
+                case Languages.ENGLISH ->{
+                    if (newText.matches("[a-z]*"))
+                        yield change;
+                    yield null;
+                }
+                case Languages.NUMS ->{
+                    throw new RuntimeException("Ну как так");
+                }
+            };
+        };
+
+        TextFormatter<String> textFormatter = new TextFormatter<>(filter);
+        keyTextField.setTextFormatter(textFormatter);
     }
 }

@@ -33,6 +33,7 @@ public class MainModel {
 
         inputModel = new InputModel(currentLanguage);
         inputModel.textProperty().bindBidirectional(input);
+        inputModel.outputProperty().bindBidirectional(output);
 
         outputModel = new OutputModel();
         outputModel.textProperty().bindBidirectional(output);

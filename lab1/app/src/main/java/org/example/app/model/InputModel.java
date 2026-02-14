@@ -6,6 +6,7 @@ import org.example.app.utils.CurrentLanguage;
 
 public class InputModel {
     private final StringProperty text = new SimpleStringProperty("");
+    private final StringProperty output = new SimpleStringProperty("");
     private final CurrentLanguage currentLanguage;
 
     public InputModel(CurrentLanguage l){
@@ -16,11 +17,11 @@ public class InputModel {
         return text;
     }
 
-    public final String getText() {
-        return text.get();
+    public StringProperty outputProperty(){
+        return output;
     }
 
-    public final void setText(String text) {
-        this.text.set(text);
+    public void resetOutput(){
+        output.set("");
     }
 }
