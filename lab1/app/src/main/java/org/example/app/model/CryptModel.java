@@ -54,7 +54,7 @@ public class CryptModel {
                 output.set(CryptUtil.playfairEncrypt(key.get(), src));
             }
             else if (crypt.get().contains("Виженер")){
-
+                output.set(CryptUtil.vigenereDecrypt(key.get(), src));
             }
             writeToFile();
         }
@@ -75,7 +75,7 @@ public class CryptModel {
                 output.set(CryptUtil.playfairDecrypt(key.get(), src));
             }
             else if (crypt.get().contains("Виженер")){
-
+                output.set(CryptUtil.vigenereEncrypt(key. get(), src));
             }
             writeToFile();
         }

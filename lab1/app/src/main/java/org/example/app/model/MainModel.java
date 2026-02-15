@@ -2,7 +2,6 @@ package org.example.app.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import org.example.app.utils.CurrentLanguage;
-import org.example.app.utils.Languages;
 import javafx.beans.property.StringProperty;
 
 public class MainModel {
@@ -36,6 +35,7 @@ public class MainModel {
 
         resultFileModel = new ResultFileModel();
         resultFileModel.filePathProperty().bindBidirectional(resultFile);
+        resultFileModel.outputProperty().bindBidirectional(output);
 
         inputModel = new InputModel(currentLanguage);
         inputModel.textProperty().bindBidirectional(input);
