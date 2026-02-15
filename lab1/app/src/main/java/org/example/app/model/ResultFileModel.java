@@ -3,13 +3,8 @@ package org.example.app.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class SourceFileModel {
+public class ResultFileModel {
     private final StringProperty filePath = new SimpleStringProperty("");
-    private final StringProperty input = new SimpleStringProperty("");
-
-    public StringProperty inputProperty(){
-        return input;
-    }
 
     public StringProperty filePathProperty() {
         return filePath;
@@ -21,7 +16,6 @@ public class SourceFileModel {
 
     public final void setFilePath(String path) {
         filePath.set(path);
-        input.set("");
-        System.out.println("В качестве исходного файла установлен: " + path);
+        System.out.println("В качестве итогового файла установлен: " + path);
     }
 }

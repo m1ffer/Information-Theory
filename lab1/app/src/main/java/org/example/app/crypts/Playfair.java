@@ -3,7 +3,7 @@ package org.example.app.crypts;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Playfair {
+public class Playfair{
     private record idx(int i, int j){}
     public static final int ALPHABET_SIZE = 26;
     public static final int TABLE_SIZE = (int) Math.sqrt(ALPHABET_SIZE);
@@ -39,6 +39,8 @@ public class Playfair {
         String mainLetters = makeMainLetters(planeText, originalIndexes);
         if (mainLetters.isEmpty())
             return planeText;
+        if (mainLetters.length() % 2 != 0)
+            throw new IllegalArgumentException("Длина расшифруемого текста должны быть четной");
         StringBuilder source = new StringBuilder();
         ArrayList<Integer> upperLetters = new ArrayList<>();
         ArrayList<Integer> emptyIndexes = new ArrayList<>();
@@ -52,7 +54,7 @@ public class Playfair {
         return backtrack(encrypted, upperLetters, originalIndexes, emptyIndexes, planeText);
     }
 
-    private static String backtrack(String encrypted, ArrayList<Integer> upperLetters, ArrayList<Integer> originalIndexes, ArrayList<Integer> emptyIndexes, String planeText){
+    public static String backtrack(String encrypted, ArrayList<Integer> upperLetters, ArrayList<Integer> originalIndexes, ArrayList<Integer> emptyIndexes, String planeText){
         StringBuilder res = new StringBuilder(encrypted);
         {
             int uppInd = 0, uppI = upperLetters.size() == 0 ? -1 : upperLetters.get(uppInd);

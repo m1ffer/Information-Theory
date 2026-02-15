@@ -5,11 +5,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<HBox alignment="BOTTOM_LEFT" prefHeight="15.0" prefWidth="642.0" spacing="5" xmlns="http://javafx.com/javafx/25">
+<HBox alignment="CENTER_LEFT" prefHeight="15.0" prefWidth="642.0" spacing="5" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.app.controllers.SourceFileController">
     <Label maxHeight="41.0" prefHeight="41.0" styleClass="long-info-label" text="Исходный текст:" HBox.hgrow="NEVER" />
     <Region styleClass="horizontal-spacer" HBox.hgrow="NEVER" />
-    <Button styleClass="file-button" text="Выбор файла" HBox.hgrow="NEVER" />
-    <Region styleClass="horizontal-spacer" />
-    <Button styleClass="file-button" text="Выбор папки" HBox.hgrow="NEVER" />
-    <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+    <Button fx:id="chooseFileButton" styleClass="file-button" text="Выбор файла" HBox.hgrow="NEVER" />
+   <Region styleClass="horizontal-spacer" HBox.hgrow="NEVER" />
+   <Label fx:id="filePathLabel" prefHeight="18.0" prefWidth="438.0" HBox.hgrow="ALWAYS" />
 </HBox>

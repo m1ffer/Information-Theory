@@ -1,5 +1,7 @@
 package org.example.app.controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -30,6 +32,13 @@ public class KeyController {
     public void initModel() {
         keyTextField.textProperty().bindBidirectional(model.keyValueProperty());
         // Создаём фильтр, разрешающий только не цифры
+        keyTextField.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable,
+                                String oldValue, String newValue) {
+                model.clearOutput();
+            }
+        });
         UnaryOperator<TextFormatter.Change> filter = change -> {
             String newText = change.getControlNewText();
 

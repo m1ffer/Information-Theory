@@ -1,4 +1,5 @@
 import org.example.app.crypts.Playfair;
+import org.example.app.crypts.Vigenere;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -353,6 +354,27 @@ public class tests {
         String cipher = Playfair.encrypt(key, plain);
         String decrypted = Playfair.decrypt(key, cipher);
         assertEquals(expected, decrypted);
+    }
+
+    @Test
+    public void testVigenereEncrypt1(){
+        assertEquals("гчх",
+                Vigenere.encrypt("з", "ыол"));
+    }
+
+    @Test
+    public void testVigenereEncrypt2(){
+        assertEquals("Хлрь б Пюыья жкяып эгруптп",
+                Vigenere.encrypt("кларнетылдуаоыдтфауджфатфжцвдлот", "Карл у Клары украл кораллы"));
+    }
+
+    @Test
+    public void testVigenereDecrypt1(){
+        String plane = "ялыопкрофукларлжо32йрклер4шгн3ц84нкрсм7 47цф44р гша 4фрн47е пр8ПА8Ф7Ц П38КП ФЦ873КПФЦШНДПКЛДПИЫРЛДАичаькиплв    ыруолд12513  ";
+        String key = "афдыуатаы";
+        String encrypted = Vigenere.encrypt(key, plane);
+        String decrypted = Vigenere.decrypt(key, encrypted);
+        assertEquals(plane, decrypted);
     }
 
 }

@@ -16,6 +16,7 @@ public class CategoryModel {
     private final HashMap<String, Languages> languages = new HashMap<>(categories.size());
     private final CurrentLanguage currentLanguage;
     private final StringProperty textProperty = new SimpleStringProperty();
+    private CryptModel clearModel;
 
     public CategoryModel(CurrentLanguage l){
         currentLanguage = l;
@@ -70,5 +71,14 @@ public class CategoryModel {
     public void setCrypt(String crypt){
         textProperty.set(crypt);
         currentLanguage.set(languages.get(crypt));
+        clearAll();
+    }
+
+    public void setClearModel(CryptModel model){
+        clearModel = model;
+    }
+
+    public void clearAll(){
+        clearModel.clear();
     }
 }

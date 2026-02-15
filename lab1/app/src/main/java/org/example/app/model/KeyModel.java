@@ -7,6 +7,7 @@ import org.example.app.utils.Languages;
 
 public class KeyModel {
     private final StringProperty key = new SimpleStringProperty("");
+    private final StringProperty output = new SimpleStringProperty("");
     private final CurrentLanguage currentLanguage;
 
     public KeyModel(CurrentLanguage l){
@@ -15,6 +16,10 @@ public class KeyModel {
 
     public StringProperty keyValueProperty() {
         return key;
+    }
+
+    public StringProperty outputProperty(){
+        return output;
     }
 
     public final String getKey() {
@@ -27,5 +32,9 @@ public class KeyModel {
 
     public final Languages getLanguage(){
         return currentLanguage.get();
+    }
+
+    public void clearOutput(){
+        output.set("");
     }
 }

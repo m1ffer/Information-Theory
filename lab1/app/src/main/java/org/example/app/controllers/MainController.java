@@ -17,6 +17,10 @@ public class MainController {
     private OutputController outputController;
     @FXML
     private CryptController cryptController;
+    @FXML
+    private SourceFileController sourceFileController;
+    @FXML
+    private ResultFileController resultFileController;
     public void setModel(MainModel model){
         this.model = model;
         categoryController.setModel(model.getCategoryModel());
@@ -24,6 +28,8 @@ public class MainController {
         inputAreaController.setModel(model.getInputModel());
         outputController.setModel(model.getOutputModel());
         cryptController.setModel(model.getCryptModel());
+        sourceFileController.setModel(model.getSourceFileModel());
+        resultFileController.setModel(model.getResultFileModel());
     }
     @FXML
     public void initialize() {}

@@ -33,7 +33,7 @@
                 <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
 
                 <!-- Строка с кнопками выбора файла/папки для исходного текста -->
-                <fx:include source="source-file-buttons.fxml"/>
+                <fx:include fx:id="sourceFile" source="source-file-buttons.fxml"/>
 
                 <Region styleClass="minimal-size-vertical-spacer" VBox.vgrow="NEVER" />
 
@@ -43,7 +43,7 @@
                 <Region styleClass="vertical-spacer" VBox.vgrow="NEVER" />
 
                 <!-- Строка с кнопкой выбора файла для результата -->
-                <fx:include source="result-file-button.fxml"/>
+                <fx:include fx:id="resultFile" source="result-file-button.fxml"/>
 
                 <Region styleClass="minimal-size-vertical-spacer" VBox.vgrow="NEVER" />
 
