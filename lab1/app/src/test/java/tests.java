@@ -364,8 +364,8 @@ public class tests {
 
     @Test
     public void testVigenereEncrypt2(){
-        assertEquals("Хлрь б Пюыья жкяып эгруптп",
-                Vigenere.encrypt("кларнетылдуаоыдтфауджфатфжцвдлот", "Карл у Клары украл кораллы"));
+        assertEquals("а бяешь 5 шюъле",
+                Vigenere.encrypt("мышь", "у ёжика 5 яблок"));
     }
 
     @Test

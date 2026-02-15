@@ -46,6 +46,7 @@ public class CryptModel {
 
     public void encrypt() {
         try {
+            System.out.println("шифруем");
             String src = getSource();
             if (crypt.get() == null || crypt.get().isEmpty()){
                 throw new IllegalArgumentException ("Сначала выберите шифр");
@@ -53,8 +54,9 @@ public class CryptModel {
             if (crypt.get().contains("Плейфейр")) {
                 output.set(CryptUtil.playfairEncrypt(key.get(), src));
             }
-            else if (crypt.get().contains("Виженер")){
-                output.set(CryptUtil.vigenereDecrypt(key.get(), src));
+            else{
+                System.out.println("вижинер");
+                output.set(CryptUtil.vigenereEncrypt(key.get(), src));
             }
             writeToFile();
         }
@@ -75,7 +77,7 @@ public class CryptModel {
                 output.set(CryptUtil.playfairDecrypt(key.get(), src));
             }
             else if (crypt.get().contains("Виженер")){
-                output.set(CryptUtil.vigenereEncrypt(key. get(), src));
+                output.set(CryptUtil.vigenereDecrypt(key. get(), src));
             }
             writeToFile();
         }
