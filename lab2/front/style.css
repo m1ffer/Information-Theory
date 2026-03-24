@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+}
+
+h2, h3 {
+    margin-bottom: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.full {
+    grid-column: span 2;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #4f46e5;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4338ca;
+}
+
+pre {
+    background: #f9fafb;
+    padding: 10px;
+    border-radius: 6px;
+
+    max-height: 250px;
+    overflow-y: auto;
+
+    white-space: pre-wrap;
+
+    /* ❗ ключевое */
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.small-text {
+    color: #666;
+    font-size: 14px;
+}
+
+.byte-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    font-family: monospace;
+}
+
+.byte {
+    font-family: monospace;
+
+    /* ❌ убираем визуальные плашки */
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    /* ✔ оставляем главное */
+    white-space: nowrap;
+}
+#editPolyBtn {
+    background: transparent;
+    color: #4f46e5;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#editPolyBtn:hover {
+    background: #eef2ff;
+}
