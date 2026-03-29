@@ -60,7 +60,6 @@ pre {
 
     white-space: pre-wrap;
 
-    /* ❗ ключевое */
     word-break: normal;
     overflow-wrap: break-word;
 }
@@ -80,12 +79,10 @@ pre {
 .byte {
     font-family: monospace;
 
-    /* ❌ убираем визуальные плашки */
     background: transparent;
     border: none;
     padding: 0;
 
-    /* ✔ оставляем главное */
     white-space: nowrap;
 }
 #editPolyBtn {

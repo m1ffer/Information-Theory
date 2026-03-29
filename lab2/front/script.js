@@ -3,17 +3,14 @@ let POLYNOMIAL = "x^27 + x^8 + x^7 + x + 1";
 const ENABLE_POLY_EDIT = true;
 const seedInput = document.getElementById("seedBits");
 
-// 🔥 хранение результата
 let lastResultBytes = null;
 
-// степень
 function getMaxPower(poly) {
     const matches = poly.match(/x\^(\d+)/g);
     if (!matches) return 1;
     return Math.max(...matches.map(m => parseInt(m.replace("x^", ""))));
 }
 
-// обновление счетчика
 function updateBitInfo() {
     const bits = seedInput.value;
     const maxPower = getMaxPower(POLYNOMIAL);
@@ -35,7 +32,6 @@ function editPolynomial() {
 
     if (!newPoly) return;
 
-    // простая проверка
     if (!/x\^\d+/.test(newPoly)) {
         alert("Некорректный полином");
         return;
@@ -43,14 +39,11 @@ function editPolynomial() {
 
     POLYNOMIAL = newPoly;
 
-    // обновляем UI
     document.getElementById("polyDisplay").textContent =
         "Полином: " + POLYNOMIAL;
 
-    // 🔥 пересчёт степени
     const maxPower = getMaxPower(POLYNOMIAL);
 
-    // 🔥 обрезаем seed если длиннее
     let current = seedInput.value;
 
     if (current.length > maxPower) {
@@ -62,7 +55,6 @@ function editPolynomial() {
     updateBitInfo();
 }
 
-// фильтрация ввода
 seedInput.addEventListener("input", () => {
     const maxPower = getMaxPower(POLYNOMIAL);
 
@@ -77,7 +69,6 @@ seedInput.addEventListener("input", () => {
     updateBitInfo();
 });
 
-// seed
 function getSeedFromBits() {
     const bits = seedInput.value;
     const maxPower = getMaxPower(POLYNOMIAL);
@@ -90,7 +81,6 @@ function getSeedFromBits() {
     return parseInt(bits, 2);
 }
 
-// 🔥 рендер байтов
 function renderBytes(containerId, bytes) {
     const container = document.getElementById(containerId);
     container.innerHTML = "";
@@ -107,7 +97,6 @@ function renderBytes(containerId, bytes) {
     }
 }
 
-// 🔥 основная логика
 async function process() {
 
     const fileInput = document.getElementById("fileInput");
@@ -122,13 +111,11 @@ async function process() {
 
     const file = fileInput.files[0];
 
-    // ---------- вход
     const buffer = await file.arrayBuffer();
     const inputBytes = new Uint8Array(buffer);
 
     renderBytes("inputBits", inputBytes);
 
-    // ---------- ключ
     const keyForm = new FormData();
     keyForm.append("seed", seed);
     keyForm.append("polynomial", POLYNOMIAL);
@@ -143,7 +130,6 @@ async function process() {
 
     renderBytes("keyOutput", keyBytes);
 
-    // ---------- шифр
     const formData = new FormData();
     formData.append("file", file);
     formData.append("seed", seed);
@@ -158,10 +144,8 @@ async function process() {
 
     renderBytes("output", outBytes);
 
-    // 🔥 сохраняем результат
     lastResultBytes = outBytes;
 
-    // 🔥 показываем кнопку скачивания
     document.getElementById("downloadBtn").style.display = "inline-block";
 }
 
@@ -173,7 +157,6 @@ async function downloadResult() {
     }
 
     try {
-        // 🔥 открывается нормальный диалог "Сохранить как"
         const handle = await window.showSaveFilePicker({
             suggestedName: "result.bin",
             types: [{
@@ -192,7 +175,6 @@ async function downloadResult() {
     }
 }
 
-// init
 window.onload = () => {
     updateBitInfo();
 
