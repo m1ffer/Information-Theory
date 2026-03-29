@@ -1,4 +1,4 @@
-let POLYNOMIAL = "x^31 + x^3 + 1";
+let POLYNOMIAL = "x^27 + x^8 + x^7 + x + 1";
 
 const ENABLE_POLY_EDIT = true;
 const seedInput = document.getElementById("seedBits");
@@ -199,4 +199,7 @@ window.onload = () => {
     if (!ENABLE_POLY_EDIT) {
         document.getElementById("editPolyBtn").style.display = "none";
     }
+
+    document.getElementById("polyDisplay").textContent =
+        "Полином: " + POLYNOMIAL;
 };

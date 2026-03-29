@@ -89,4 +89,15 @@ public class Lfsr implements Generator{
     public byte nextByte() {
         return generateByte();
     }
+
+    public String makeRow(){
+        StringBuilder res = new StringBuilder();
+        for(long tmpFirstBitMask = firstBitMask; tmpFirstBitMask != 0; tmpFirstBitMask >>>= 1)
+            res.append(Long.bitCount(reg & tmpFirstBitMask));
+        int newBit = Long.bitCount(reg & tapsMask) & 1;
+        res.append(newBit);
+        reg <<= 1;
+        reg |= newBit;
+        return res.toString();
+    }
 }
