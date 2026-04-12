@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" style="-fx-padding: 15;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.app.controllers.DecryptController">
+
+    <!-- p -->
+    <HBox spacing="10">
+        <Label text="p:" />
+        <TextField fx:id="pField" prefWidth="150" promptText="Введите простое число" />
+    </HBox>
+
+    <!-- x -->
+    <HBox spacing="10">
+        <Label text="x (секретный ключ):" />
+        <TextField prefWidth="150" promptText="Введите число" fx:id="xField" />
+    </HBox>
+
+    <!-- файлы -->
+    <VBox spacing="8">
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button fx:id="inputFileButton" text="Выбрать входной файл" onAction="#chooseInputFile"/>
+            <Label fx:id="inputFileLabel" maxWidth="Infinity" text="Файл не выбран"/>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button fx:id="outputFileButton" text="Выбрать выходной файл" onAction="#chooseOutputFile"/>
+            <Label fx:id="outputFileLabel" maxWidth="Infinity" text="Файл не выбран"/>
+        </HBox>
+
+    </VBox>
+
+    <!-- запуск -->
+    <Button fx:id="decryptButton" text="Расшифровать" onAction="#decrypt"/>
+
+    <!-- результат -->
+    <VBox spacing="5" VBox.vgrow="ALWAYS">
+        <Label text="Результат:" />
+        <TextArea fx:id="resultArea" promptText="Здесь будет результат" wrapText="true" VBox.vgrow="ALWAYS" />
+    </VBox>
+
+</VBox>

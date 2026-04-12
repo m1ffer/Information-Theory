@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.app.controllers.ChoiceController">
+
+    <!-- Верхнее меню -->
+    <top>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+            <Button text="Зашифровать" fx:id="encryptBtn" onAction="#onEncryptClicked"/>
+            <Button text="Расшифровать" fx:id="decryptBtn" onAction="#onDecryptClicked"/>
+        </HBox>
+    </top>
+
+    <!-- Контент -->
+    <center>
+        <StackPane fx:id="contentPane"/>
+    </center>
+
+</BorderPane>

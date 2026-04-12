@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" style="-fx-padding: 15;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.app.controllers.EncryptController">
+
+    <!-- p -->
+    <HBox spacing="10">
+        <Label text="p:" />
+        <TextField fx:id="pField" prefWidth="150" promptText="Введите простое число" />
+        <Button fx:id="computeGButton" text="Найти все g" onAction="#computeG"/>
+    </HBox>
+
+    <!-- g -->
+    <HBox spacing="10">
+        <Label text="g:" />
+        <ComboBox fx:id="gComboBox" prefWidth="200" promptText="Здесь будут все g" />
+    </HBox>
+
+    <!-- x -->
+    <HBox spacing="10">
+        <Label text="x (секретный ключ):" />
+        <TextField prefWidth="150" promptText="Введите число" fx:id="xField" />
+    </HBox>
+
+    <!-- y -->
+    <HBox spacing="10">
+        <Label text="y (публичный ключ):" />
+        <Label fx:id="yLabel" text="Здесь будет публичный ключ" />
+    </HBox>
+
+    <!-- k1 -->
+    <HBox spacing="10">
+        <Label text="k1:" />
+        <TextField fx:id="kField" prefWidth="150" promptText="Необязательно" />
+    </HBox>
+
+    <!-- файлы -->
+    <VBox spacing="8">
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button fx:id="inputFileButton" prefHeight="26.0" prefWidth="151.0" text="Выбрать входной файл" onAction="#chooseInputFile"/>
+            <Label fx:id="inputFileLabel" maxWidth="Infinity" text="Файл не выбран" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button fx:id="outputFileButton" text="Выбрать выходной файл" onAction="#chooseOutputFile"/>
+            <Label fx:id="outputFileLabel" maxWidth="Infinity" text="Файл не выбран" />
+        </HBox>
+
+    </VBox>
+
+    <!-- запуск -->
+    <Button fx:id="encryptButton" text="Зашифровать" onAction="#encrypt"/>
+
+    <!-- результат -->
+    <VBox spacing="5" VBox.vgrow="ALWAYS">
+        <Label text="Результат:" />
+        <TextArea fx:id="resultArea" wrapText="true" VBox.vgrow="ALWAYS" />
+    </VBox>
+
+</VBox>
